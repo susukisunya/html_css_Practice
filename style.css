@@ -1,8 +1,36 @@
+.responsive-table {
+    display: grid;
+    border: 1px solid white;
+    padding: 8px;
+}
+
+.responsive-table div{
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
 @media screen and (max-width: 600px) {
     /*ここに画面幅600px以下の時に適用するcssを書く*/
-
+    /*この時は縦3 * 横2、2行目のみ色がついている状態の表を表示する*/
+   .responsive-table {
+      grid-template-columns: repeat(2, 1fr);/*repeat(x,1fr) xに列数を指定すると、その列数になる*/
+   }
+   .responsive-table div:nth-child(4n+3),
+   .responsive-table div:nth-child(4n+4){
+      background: #8a8aff;
+   }
 }
 
 @media screen and (min-width: 600px) {
     /*ここに画面幅600pxより大きいの時に適用するcssを書く*/
+    /*この時は縦2 * 横3、2行目のみ色がついている状態の表を表示する*/
+    .responsive-table{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .responsive-table div:nth-child(6n+4),
+    .responsive-table div:nth-child(6n+5),
+    .responsive-table div:nth-child(6n+6){
+      background: #8a8aff;
+   }
 }
